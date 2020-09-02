@@ -28,7 +28,7 @@ class LinkedList:
     def insert_at_head(self, node):
         # first search for key in list
         found_node = self.find(node.key)
-        # replace value at key if key already exists
+        # replace value if key already exists
         if found_node is not None:
             found_node.value = node.value
         # else add a new node to the head
@@ -113,6 +113,7 @@ class HashTable:
         for char in key:
             hash *= FNV_prime
             hash ^= ord(char)
+
         return hash
 
     def djb2(self, key):
@@ -175,8 +176,8 @@ class HashTable:
         if deleted_node is not None:
             self.items_stored -= 1
             return deleted_node.value
-        else:
-            return None
+
+        return None
 
     def get(self, key):
         """
@@ -193,8 +194,8 @@ class HashTable:
 
             if found_node is not None:
                 return found_node.value
-        else:
-            return None
+
+        return None
 
     def resize(self, new_capacity):
         """
@@ -204,18 +205,17 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        load_factor = self.get_load_factor()
-
-        if load_factor > 0.7:
+        if self.get_load_factor() > 0.7:
             # create new array with twice the current capacity
             new_storage = [None] * new_capacity
             self.capacity = new_capacity
-            # loop thru self.data to find each entry and add it to new storage array
+            # loop thru self.data to find each entry
             for linked_list in self.data:
                 if linked_list is not None:
                     cur = linked_list.head
 
                     while cur is not None:
+                        # find new index for key and add node to new storage array
                         index = self.hash_index(cur.key)
 
                         if new_storage[index] is None:
