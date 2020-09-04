@@ -1,8 +1,4 @@
-# Your code here
-
-
 def expensive_seq(x, y, z, cache={}):
-    # Your code here
     if (x, y, z) in cache:
         return cache[(x, y, z)]
 

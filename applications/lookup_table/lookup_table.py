@@ -1,4 +1,3 @@
-# Your code here
 import math
 import random
 

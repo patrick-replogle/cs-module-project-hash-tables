@@ -71,7 +71,6 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        # Your code here
         self.capacity = capacity
         self.data = [None] * capacity
         self.items_stored = 0
@@ -86,7 +85,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         return len(self.data)
 
     def get_load_factor(self):
@@ -95,7 +94,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         return self.items_stored / self.capacity
 
     def fnv1(self, key):
@@ -105,7 +104,6 @@ class HashTable:
         Implement this, and/or DJB2.
         """
 
-        # Your code here
         FNV_prime = 1099511628211
         FNV_offset_basis = 14695981039346656037
         hash = FNV_offset_basis
@@ -122,7 +120,6 @@ class HashTable:
 
         Implement this, and/or FNV-1.
         """
-        # Your code here
 
         hash = 5381
         for char in key:
@@ -146,7 +143,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         index = self.hash_index(key)
         if self.data[index] is None:
             self.data[index] = LinkedList(HashTableEntry(key, value))
@@ -164,7 +161,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         index = self.hash_index(key)
 
         if self.data[index] is None:
@@ -187,7 +184,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         index = self.hash_index(key)
         if self.data[index] is not None:
             found_node = self.data[index].find(key)
@@ -204,7 +201,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+
         if self.get_load_factor() > 0.7:
             # create new array with twice the current capacity
             new_storage = [None] * new_capacity

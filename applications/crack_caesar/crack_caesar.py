@@ -53,7 +53,7 @@ def crack_caesar(file):
                 index += 1
 
         arr.sort(key=lambda x: x[1], reverse=True)
-        # create a decode table now that indexes of the created array will match with the freq_letter_count array
+        # create a decode table now that indexes of the char occurences array will match with the index of the freq_letter_count array
         for i in range(len(arr)):
             decodeTable[arr[i][0]] = freq_letter_order[i]
         # lastly loop thru the original file and build the decoded result string

@@ -2,7 +2,6 @@ import re
 
 
 def word_count(s):
-    # Your code here
     if len(s) == 0 or not re.search('[A-Za-z]', s):
         return {}
 
