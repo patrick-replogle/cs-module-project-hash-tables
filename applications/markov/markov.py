@@ -9,7 +9,7 @@ def markov(file):
     with open(file, "r") as f:
         words = f.read().split(' ')
         words = [s.rstrip('\n') for s in words]
-        # build dict where each key is a word from the text file and the value is an array of all the words that directly follow the key in the txt file
+        # build dict where each key is a word from the text file and the value is an array of all the words that directly follow each instance of the key in the txt file
         for i in range(0, len(words) - 1):
             if words[i] not in wordCache:
                 wordCache[words[i]] = [words[i+1]]
@@ -35,8 +35,7 @@ def markov(file):
                 # else add the curr_word to the result and then search the wordCount dict for the next following word options
                 else:
                     result += curr_word + " "
-                    prev_word = curr_word
-                    curr_word = random.choice(wordCache[prev_word])
+                    curr_word = random.choice(wordCache[curr_word])
             # increase sentence count by 1 and print the sentence
             sentence_count += 1
             print(result)
