@@ -114,7 +114,7 @@ class HashTable:
             hash *= FNV_prime
             hash ^= ord(char)
 
-        return hash
+        return (hash & 0xffffffffffffffff)
 
     def djb2(self, key):
         """
@@ -126,9 +126,9 @@ class HashTable:
 
         hash = 5381
         for char in key:
-            hash = (hash * 33) + ord(char)
+            hash = (hash * 33) + hash + ord(char)
 
-        return hash
+        return (hash & 0xffffffff)
 
     def hash_index(self, key):
         """
