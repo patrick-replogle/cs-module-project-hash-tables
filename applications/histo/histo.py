@@ -9,7 +9,7 @@ def histo(file):
         words = f.read().lower().split(' ')
         # iterate thru array of words and add each word to wordCount and increment # if word already exists in dict
         for word in words:
-            word = re.sub('[\n/\]^}(,[.&*;?;){:!"]', '', word)
+            word = re.sub('[\n/\]}(,[.*;?;){:!"]', '', word)
 
             if word in wordCount:
                 wordCount[word] += "#"
