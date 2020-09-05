@@ -1,4 +1,7 @@
-def expensive_seq(x, y, z, cache={}):
+cache = {}
+
+
+def expensive_seq(x, y, z):
     if (x, y, z) in cache:
         return cache[(x, y, z)]
 
@@ -7,8 +10,8 @@ def expensive_seq(x, y, z, cache={}):
         return cache[x]
 
     if x > 0:
-        result = (expensive_seq(x-1, y+1, z, cache) + expensive_seq(x -
-                                                                    2, y+2, z*2, cache) + expensive_seq(x-3, y+3, z*3, cache))
+        result = (expensive_seq(x-1, y+1, z) + expensive_seq(x -
+                                                             2, y+2, z*2) + expensive_seq(x-3, y+3, z*3))
         cache[(x, y, z)] = result
         return cache[(x, y, z)]
 

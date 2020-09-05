@@ -12,7 +12,10 @@ def slowfun_too_slow(x, y):
 
 
 ## cache the results of each slowfun call by adding a tuple as a key in the cache ##
-def slowfun(x, y, cache={}):
+cache = {}
+
+
+def slowfun(x, y):
     """
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.

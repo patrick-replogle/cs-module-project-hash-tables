@@ -42,20 +42,21 @@ class LinkedList:
             self.head = self.head.next
 
             return old_head
+
         else:
             cur = self.head.next
             prev = self.head
 
-        while cur is not None:
-            if cur.key == key:
-                prev.next = cur.next
+            while cur is not None:
+                if cur.key == key:
+                    prev.next = cur.next
 
-                return cur
-            else:
-                prev = prev.next
-                cur = cur.next
+                    return cur
+                else:
+                    prev = prev.next
+                    cur = cur.next
 
-        return None
+            return None
 
 
 # Hash table can't have fewer than this many slots
