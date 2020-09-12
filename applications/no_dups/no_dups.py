@@ -1,6 +1,18 @@
 def no_dups(s):
-    # Your code here
+    result = ""
+    wordCount = {}
+    s = s.split(" ")
 
+    for word in s:
+        if word not in wordCount:
+            wordCount[word] = 0
+
+        wordCount[word] += 1
+
+        if wordCount[word] == 1:
+            result += word + " "
+
+    return result.strip()
 
 
 if __name__ == "__main__":
